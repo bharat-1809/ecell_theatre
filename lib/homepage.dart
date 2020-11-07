@@ -30,7 +30,7 @@ class HomePage extends StatelessWidget {
             Container(
               margin: EdgeInsets.symmetric(
                 vertical: 25.0,
-                horizontal: _width < 1300 ? _width * 0.20 : _width * 0.35,
+                
               ),
               padding: const EdgeInsets.all(8.0),
               height: _height,
@@ -40,20 +40,33 @@ class HomePage extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.center,
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
-                    Text(
-                      "E-Cell NITA",
-                      style: GoogleFonts.openSans(
-                        color: Colors.white,
-                        fontSize: _width * 0.045,
-                        fontWeight: FontWeight.bold,
+                    Container(
+                      margin: EdgeInsets.symmetric(
+                        horizontal: _width < 1300 ? _width * 0.15 : _width * 0.25,
+                      ),
+                      child: Text(
+                        "E-Tribe's party is live so BYOB and quickly grab a seat",
+                        style: GoogleFonts.dancingScript(
+                          color: Colors.white,
+                          fontSize: _width * 0.045,
+                        ),
+                        textAlign: TextAlign.center,
                       ),
                     ),
                     SizedBox(height: 40.0),
-                    CustomTextField(
-                      textEditingController: _textController,
+                    Container(
+                      margin: EdgeInsets.symmetric(
+                        horizontal: _width < 1300 ? _width * 0.20 : _width * 0.35,
+                      ),
+                      child: CustomTextField(
+                        textEditingController: _textController,
+                      ),
                     ),
                     SizedBox(height: 30.0),
                     Container(
+                      margin: EdgeInsets.symmetric(
+                        horizontal: _width < 1300 ? _width * 0.20 : _width * 0.35,
+                      ),
                       width: _width,
                       child: CustomButton(
                         onTap: () async {

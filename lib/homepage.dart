@@ -2,7 +2,7 @@ import 'package:ecell_3years/button.dart';
 import 'package:ecell_3years/textfield.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:url_launcher/url_launcher.dart';
+// ignore: avoid_web_libraries_in_flutter
 import 'dart:js' as js;
 
 class HomePage extends StatelessWidget {

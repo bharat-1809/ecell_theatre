@@ -45,7 +45,7 @@ class CustomTextField extends StatelessWidget {
         ),
         contentPadding: EdgeInsets.symmetric(
           horizontal: 25,
-          vertical: _height < 1000 ? _height * 0.018 : _height * 0.027,
+          vertical: _height < 1000 ? _height * 0.018 : _height * 0.029,
         ),
         hintText: "Enter Hall number",
         hintStyle: GoogleFonts.montserrat(

@@ -33,7 +33,7 @@ class CustomButton extends StatelessWidget {
       ),
       padding: EdgeInsets.symmetric(
         horizontal: 25.0,
-        vertical: _height < 1000 ? _height * 0.020 : _height * 0.030,
+        vertical: _height < 1000 ? _height * 0.020 : _height * 0.032,
       ),
     );
   }

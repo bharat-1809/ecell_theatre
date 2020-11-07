@@ -1,5 +1,7 @@
+import 'package:ecell_3years/data.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+
 
 final _border = OutlineInputBorder(
   borderRadius: BorderRadius.circular(30.0),
@@ -17,11 +19,19 @@ class CustomTextField extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-
     final _height = MediaQuery.of(context).size.height;
 
     return TextFormField(
       controller: textEditingController,
+      keyboardType: TextInputType.number,
+      validator: (value) {
+        if (value.isEmpty)
+          return "Enter a valid hall number";
+        else if (codes.contains(int.parse(value)))
+          return null;
+        else
+          return "Enter a valid hall number";
+      },
       decoration: InputDecoration(
         border: _border,
         disabledBorder: _border,

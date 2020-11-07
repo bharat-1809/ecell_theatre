@@ -2,9 +2,12 @@ import 'package:ecell_3years/button.dart';
 import 'package:ecell_3years/textfield.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:url_launcher/url_launcher.dart';
+import 'dart:js' as js;
 
 class HomePage extends StatelessWidget {
   final _textController = TextEditingController();
+  final _formKey = GlobalKey<FormState>();
 
   @override
   Widget build(BuildContext context) {
@@ -31,32 +34,37 @@ class HomePage extends StatelessWidget {
               ),
               padding: const EdgeInsets.all(8.0),
               height: _height,
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  Text(
-                    "E-Cell NITA",
-                    style: GoogleFonts.openSans(
-                      color: Colors.white,
-                      fontSize: _width * 0.045,
-                      fontWeight: FontWeight.bold,
+              child: Form(
+                key: _formKey,
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    Text(
+                      "E-Cell NITA",
+                      style: GoogleFonts.openSans(
+                        color: Colors.white,
+                        fontSize: _width * 0.045,
+                        fontWeight: FontWeight.bold,
+                      ),
                     ),
-                  ),
-                  SizedBox(height: 40.0),
-                  CustomTextField(
-                    textEditingController: _textController,
-                  ),
-                  SizedBox(height: 40.0),
-                  Container(
-                    width: _width,
-                    child: CustomButton(
-                      onTap: () {
-                        // TODO: OnTap function sa
-                      },
+                    SizedBox(height: 40.0),
+                    CustomTextField(
+                      textEditingController: _textController,
                     ),
-                  ),
-                ],
+                    SizedBox(height: 30.0),
+                    Container(
+                      width: _width,
+                      child: CustomButton(
+                        onTap: () async {
+                          if (_formKey.currentState.validate()) {
+                            await js.context.callMethod("open", ["https://github.com/bharat-1809"]);
+                          }
+                        },
+                      ),
+                    ),
+                  ],
+                ),
               ),
             ),
             Positioned(

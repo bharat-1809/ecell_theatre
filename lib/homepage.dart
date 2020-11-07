@@ -58,7 +58,7 @@ class HomePage extends StatelessWidget {
                       child: CustomButton(
                         onTap: () async {
                           if (_formKey.currentState.validate()) {
-                            await js.context.callMethod("open", ["https://github.com/bharat-1809"]);
+                            await js.context.callMethod("open", ["https://meet.google.com/gsx-syug-rbi"]);
                           }
                         },
                       ),

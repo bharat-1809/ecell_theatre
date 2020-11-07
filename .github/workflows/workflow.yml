@@ -2,6 +2,7 @@ name: Flutter Web
 on: [push]
 jobs:
   build:
+    name: Build Web
     runs-on: ubuntu-latest
 
     steps:
@@ -13,21 +14,15 @@ jobs:
         with:
           flutter-version: "1.22.x" # you can use 1.12
           channel: "beta" # Currently you have to use beta channel for Flutter web.
-      - name: Upgrades flutter
-        run: flutter upgrade
-        working-directory: ./example
       - name: Enable Web
         run: flutter config --enable-web
-        working-directory: ./example
       - name: Install dependencies
-        run: flutter packages get
-        working-directory: ./example
+        run: flutter pub get
       - name: Build Web
         run: flutter build web
-        working-directory: ./example
       - name: Deploy
         run: |
-          cd theatre/build/web
+          cd /build/web
           git init
           git config user.name  "CI"
           git config user.email "flutter-ci@github.com"
